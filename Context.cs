@@ -9,8 +9,7 @@ namespace efconsole1
         public DbSet<Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseInMemoryDatabase("memdb");
-        // => options.UseSqlite(@"Data Source=C:\blogging.db");
+            => options.UseSqlite(@$"Data Source={System.IO.Path.Combine(System.Environment.CurrentDirectory, "blogging.db")}");
     }
 
     [EntityTypeConfiguration(typeof(BlogConfiguration))]

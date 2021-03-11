@@ -20,7 +20,7 @@ Console.WriteLine("Updating the blog and adding a post");
 blog.Url = "https://devblogs.microsoft.com/dotnet";
 blog.Posts.Add(new Post { Title = "Hello World", Content = "I wrote an app using EF Core!" });
 db.SaveChanges();
-blog.Posts.Add(new Post { Title = new String('x', 101), Content = "I wrote an app using EF Core!" });
+blog.Posts.Add(new Post { Title = new String('x', 200), Content = "I wrote an app using EF Core!" });
 db.SaveChanges();
 
 // Delete
