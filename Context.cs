@@ -9,7 +9,8 @@ namespace efconsole1
         public DbSet<Post> Posts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite(@$"Data Source={System.IO.Path.Combine(System.Environment.CurrentDirectory, "blogging.db")}");
+        => options.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=efsample;Integrated Security=True;Connect Timeout=30;Encrypt=False");
+        // => options.UseSqlite(@$"Data Source={System.IO.Path.Combine(System.Environment.CurrentDirectory, "blogging.db")}");
     }
 
     [EntityTypeConfiguration(typeof(BlogConfiguration))]
@@ -26,8 +27,6 @@ namespace efconsole1
         public int PostId { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-
-        public int BlogId { get; set; }
         public Blog Blog { get; set; }
     }
 }

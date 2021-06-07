@@ -8,9 +8,13 @@ namespace efconsole1
         public void Configure(EntityTypeBuilder<Blog> builder)
         {
             builder
-                .Property(e => e.Url)
+                .Property(b => b.Url)
                 .IsUnicode(false)
                 .HasMaxLength(100);
+            builder
+                .HasMany(b => b.Posts)
+                .WithOne(p => p.Blog)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
